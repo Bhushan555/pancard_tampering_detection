@@ -1,0 +1,8 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar h1 a{
+    text-decoration: none;
+}
