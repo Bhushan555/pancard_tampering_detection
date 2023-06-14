@@ -26,7 +26,11 @@ def index():
         uploaded_gray = cv2.cvtColor(uploaded_image, cv2.COLOR_BGR2GRAY)
         (score, diff) = structural_similarity(original_gray, uploaded_gray, full=True)
         diff = (diff * 255).astype("uint8")
-        return render_template('index.html',pred=str(round(score*100,2)) + '%' + ' correct')
+        if round(score*100,2)>50:
+            res="Real"
+        else:
+            res="Fake"
+        return render_template('index.html',pred=str(round(score*100,2)) + '%' + ' correct',result=res)
 
 
 if __name__=="__main__":
